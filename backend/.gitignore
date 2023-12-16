@@ -1,0 +1,15 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# IDE or editor-specific files (e.g., for Visual Studio Code)
+.vscode/
+
+# Build artifacts (e.g., for compiled code)
+build/
+dist/
