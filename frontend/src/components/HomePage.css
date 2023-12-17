@@ -1,0 +1,48 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .slogan {
+    font-style: italic;
+    color: #007acc; 
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .action-button {
+    padding: 15px 30px;
+    background-color: #007acc; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+  
+  .action-button:hover {
+    background-color: #005a8b;
+  }
+  
+  .create-button {
+    background-color: #009e49; 
+  }
+  
+  .join-button {
+    background-color: #ff5722; 
+  }
+  

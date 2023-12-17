@@ -20,7 +20,7 @@ const Register = () => {
         e.preventDefault();
         try {
             await register(formData);
-            setFormData({ email: '', username: '', password: '', profilePic: '' }); // Reset form data
+            setFormData({ email: '', username: '', password: '', profilePic: '' });
         } catch (error) {
             console.error('Registration failed', error);
         }

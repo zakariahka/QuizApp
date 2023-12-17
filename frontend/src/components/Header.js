@@ -5,7 +5,8 @@ function Header() {
     return (
         <header>
             <nav>
-                <Link to="/login">Login</Link>
+                <Link to="/Profile">Profile</Link>
+                <Link to="/QuizCreator">Create a Quiz!</Link>
             </nav>
         </header>
     );
