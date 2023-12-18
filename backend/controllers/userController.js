@@ -7,12 +7,12 @@ exports.register = async (req, res) => {
   try {
     const { email, password, ...otherData } = req.body;
 
-    if (!email || !password) {
+    if (!email || !password) { // email or password fields are mssing
       return res.status(400).json({ message: 'Missing fields.' });
     }
 
     const existingUser = await User.findOne({ email });
-    if (existingUser) {
+    if (existingUser) { // dont register existing user 
       return res.status(400).json({ message: 'User already exists.' });
     }
 
@@ -54,6 +54,7 @@ exports.register = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
@@ -74,7 +75,7 @@ exports.login = async (req, res) => {
 exports.getUserInfo = async (req, res) => {
   try {
     const userId = req.params._id;
-    const user = await User.findById(userId);
+    const user = await User.findById(userId); // search the db using the users ID
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -95,12 +96,12 @@ exports.addQuizScore = async (req, res) => {
       return res.status(400).json({ message: "Missing required fields." });
     }
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId); // look for user
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const quizScore = { quizId, score };
+    const quizScore = { quizId, score }; // add quizId and score into quizzes array in db
     user.quizzes.push(quizScore);
 
     await user.save();

@@ -27,11 +27,6 @@ const QuizCreator = () => {
       });
   }, []);
 
-  if (!location.state || !location.state.quizQuestions) {
-    // Handle the case where quizQuestions is missing
-    return <div>Error: Quiz questions not found.</div>;
-  }
-
   const generateGameCode = () => {
     return Math.floor(100000 + Math.random() * 900000);
   };
