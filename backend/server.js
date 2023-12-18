@@ -8,7 +8,6 @@ const cors = require('cors');
 
 connectDB();
 
-// Use the cors middleware before defining routes
 app.use(cors());
 
 app.use(express.json()); 

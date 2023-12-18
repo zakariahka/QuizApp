@@ -3,46 +3,67 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  .title-container {
+    height: calc(100vh - 100px); /* Adjusted height minus header height */
+    background-color: #e6f7ff;
+}
+
+
+.title-container {
     text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .slogan {
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+
+.title-container h1 {
+    font-size: 2.5em; /* Larger font size */
+    margin-bottom: 0.5em; /* Adjusted margin */
+    /* ... other styles ... */
+}
+
+.slogan {
     font-style: italic;
-    color: #007acc; 
-  }
-  
-  .button-container {
+    color: #0050b3;
+}
+
+.button-container {
     display: flex;
-    gap: 20px;
-  }
-  
-  .action-button {
-    padding: 15px 30px;
-    background-color: #007acc; 
-    color: white;
-    border: none;
+    flex-direction: row; /* Buttons side by side */
+    justify-content: center;
+    gap: 20px; 
+    width: auto; 
+    padding: 20px; 
+}
+
+.button-container button.action-button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #0056b3; /* Darker blue border */
     border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
     text-align: center;
-    transition: background-color 0.2s;
+    color: white;
+    background-color: #007bff; /* Blue background */
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
   
-  .action-button:hover {
-    background-color: #005a8b;
+  .button-container button.action-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
   }
-  
-  .create-button {
-    background-color: #009e49; 
-  }
-  
-  .join-button {
-    background-color: #ff5722; 
-  }
-  
+
+.create-button {
+    background-color: #28a745; 
+    border-color: #218838; 
+}
+
+.create-button:hover {
+    background-color: #218838; 
+}
+
+.join-button {
+    background-color: #17a2b8; 
+    border-color: #117a8b; 
+}
+
+.join-button:hover {
+    background-color: #117a8b;
+}

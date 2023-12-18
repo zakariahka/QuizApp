@@ -30,16 +30,35 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (formData) => {
     try {
+      // Make a POST request to the register endpoint
       const response = await axios.post(
-        "http://localhost:5000/api/users/register",
-        formData
+        'http://localhost:5000/api/users/register', // Update the URL to match your backend route
+        formData, // FormData object containing the registration data
+        {
+          headers: {
+            // You can set headers here if needed
+          },
+        }
       );
-      if (response.data && response.data.newUser) {
-        setUser(response.data.newUser);
-        console.log("Registration successful");
+  
+      // Check the response data for the token and user details
+      if (response.data && response.data.token) {
+        // Registration successful, you can save the token to your app's state
+        const token = response.data.token;
+        // You may also want to save user details to your app's state
+        const user = response.data.user;
+  
+        console.log('Registration successful');
+        return { token, user };
+      } else {
+        // Handle registration failure
+        console.error('Registration failed');
+        return null;
       }
     } catch (error) {
-      console.error("Registration error", error);
+      // Handle network errors or other exceptions
+      console.error('Registration error', error);
+      return null;
     }
   };
 

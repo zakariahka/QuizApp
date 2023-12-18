@@ -1,0 +1,111 @@
+body {
+    background-color: #f0f8ff; /* Light blue background for the entire page */
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .quiz-page-container {
+    background-color: white; /* White background for the quiz container */
+    color: #333; /* Dark text for contrast */
+    max-width: 600px; /* Limit the width */
+    margin: 20px auto; /* Center the container and add some margin on top and bottom */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+.quiz-page-container button {
+  background-color: #007bff; /* Vibrant blue for buttons */
+  color: white;
+  border: 2px solid #0056b3; /* Border color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.quiz-page-container ul li.selected {
+  background-color: #007bff; /* Highlight color for selected item */
+  color: white; /* Text color for selected item */
+  font-weight: bold; /* Bold for selected item */
+}
+
+.quiz-page-container button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-page-container button:active {
+  transform: scale(0.98); /* Slight scale down effect */
+  font-weight: bold; /* Make text bold */
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title-container h1 {
+  color: #1f78b4; /* Blue title */
+  margin-bottom: 5px;
+}
+
+.title-container .slogan {
+  color: #666;
+  font-style: italic;
+}
+
+.quiz-page-container ul {
+    max-width: 400px; /* Limit the width of the list */
+    margin: 20px auto; /* Center the list and add margin */
+    padding: 0;
+    list-style: none; /* Remove default list styling */
+  }
+  
+
+.quiz-page-container ul li {
+  background-color: #e6f2ff; /* Lighter blue for list items */
+  color: #333; /* Dark text color for readability */
+  margin-bottom: 15px; /* Increased space between items */
+  padding: 15px 20px; /* Adjust padding for longer height */
+  border-radius: 15px; /* Rounded borders */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.quiz-page-container ul li:hover {
+  background-color: #cce0ff; /* Slightly darker on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+.quiz-page-container ul li.selected {
+  background-color: #007bff; /* Highlight color for selected item */
+  color: white; /* Text color for selected item */
+  font-weight: bold; /* Bold for selected item */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* More pronounced shadow for selected item */
+}
+
+.quiz-form button {
+  background-color: #007bff; /* Vibrant blue for buttons */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.quiz-form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+}

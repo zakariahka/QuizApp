@@ -15,13 +15,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  profilePic: String,
+  profilePic: {
+    data: Buffer, // Store binary data
+    contentType: String, // Store content type (e.g., image/jpeg)
+  },
   quizzes: [{
     quizId: String,
     score: Number
   }]
 });
 
-const user = mongoose.model('user', userSchema);
-
-module.exports = user;
+module.exports = mongoose.model('User', userSchema);

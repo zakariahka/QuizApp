@@ -1,41 +1,40 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import { useAuth } from '../context/AuthContext';
-import './Login.css';
+import { useDispatch } from 'react-redux'; // Import useDispatch
+import { setUser } from '../redux/userActions'; // Adjust the path as necessary
 import axios from 'axios';
+import './Login.css';
+
 const Login = () => {
-    
     const [formData, setFormData] = useState({
       username: '',
       password: '',
     });
     const [error, setError] = useState(''); 
-    const { user, setUser } = useAuth();
     const navigate = useNavigate();
-  
+    const dispatch = useDispatch(); // Use useDispatch hook
+
     const handleChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-  
+
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await axios.post(
-            "http://localhost:5000/api/users/login",
-            formData
-          );
-          if (response.status === 200 && response.data.user) {
-            setUser(response.data.user)
-            if(user){
-                navigate('/HomePage');
-            }
-          } else {
-            setError('Login failed. Please check your credentials.');
-          }
-        } catch (error) {
-          setError(error.response ? error.response.data.message : 'Login failed. Please try again.');
+      e.preventDefault();
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/users/login",
+          formData
+        );
+        if (response.status === 200 && response.data.user) {
+          dispatch(setUser(response.data.user)); // Dispatch setUser action
+          navigate('/HomePage');
+        } else {
+          setError('Login failed. Please check your credentials.');
         }
-      };
+      } catch (error) {
+        setError(error.response ? error.response.data.message : 'Login failed. Please try again.');
+      }
+    };
   
     return (
       <div className="login-container">
