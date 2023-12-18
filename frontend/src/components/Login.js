@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import { useDispatch } from 'react-redux'; // Import useDispatch
-import { setUser } from '../redux/userActions'; // Adjust the path as necessary
+import { useDispatch } from 'react-redux';
+import { setUser } from '../redux/userActions'; 
 import axios from 'axios';
 import './Login.css';
 
@@ -12,7 +12,7 @@ const Login = () => {
     });
     const [error, setError] = useState(''); 
     const navigate = useNavigate();
-    const dispatch = useDispatch(); // Use useDispatch hook
+    const dispatch = useDispatch(); 
 
     const handleChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });

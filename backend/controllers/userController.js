@@ -16,19 +16,19 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: 'User already exists.' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10); // encrypt the password
 
     let profilePicData = null;
 
     if (req.file) {
-      // Read the uploaded file and store it as binary data
+      //read the uploaded file and store it as binary data
       const imageBuffer = fs.readFileSync(req.file.path);
       profilePicData = {
         data: imageBuffer,
         contentType: req.file.mimetype,
       };
 
-      // Remove the temporary file
+      // remove the temporary file
       fs.unlinkSync(req.file.path);
     }
 

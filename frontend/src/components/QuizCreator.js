@@ -6,7 +6,6 @@ import Header from "./Header";
 
 const QuizCreator = () => {
   const location = useLocation();
-  // Used for joinQuiz, checks to see if the code is valid
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     numQuestions: 10,
@@ -18,7 +17,7 @@ const QuizCreator = () => {
 
   useEffect(() => {
     axios
-      .get("https://opentdb.com/api_category.php")
+      .get("https://opentdb.com/api_category.php") 
       .then((response) => {
         setCategories(response.data.trivia_categories);
       })
@@ -28,7 +27,7 @@ const QuizCreator = () => {
   }, []);
 
   const generateGameCode = () => {
-    return Math.floor(100000 + Math.random() * 900000);
+    return Math.floor(100000 + Math.random() * 900000); //radnom code for accessing the quiz
   };
 
   const handleChange = (e) => {
@@ -40,6 +39,7 @@ const QuizCreator = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //trivia quiz api
     const apiUrl = `https://opentdb.com/api.php?amount=${formData.numQuestions}&category=${formData.category}&difficulty=${formData.difficulty}&type=${formData.type}`;
 
     axios
@@ -54,7 +54,7 @@ const QuizCreator = () => {
         });
 
         const gameCode = generateGameCode();
-        navigate(`/quiz/${gameCode}`, {
+        navigate(`/quiz/${gameCode}`, { //create a new link and append the quiz code to that link in order to access the quiz
           state: { quizQuestions: modifiedQuestions },
         });
       })

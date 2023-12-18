@@ -11,25 +11,22 @@ const JoinQuiz = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform validation or API request to check if the code is valid
-    // For this example, we'll assume the code is valid
+    // perform validation or API request to check if the code is valid
     const isValidCode = true;
 
     if (isValidCode) {
-      // Redirect the user to the quiz page with the quiz code
+      // redirect the user to the quiz page with the quiz code
       navigate(`/quiz/${quizCode}`);
     } else {
-      // Set an error message
       setErrorMessage("Invalid quiz code. Please try again.");
     }
   };
 
   useEffect(() => {
-    // Clear the error message after a certain delay (e.g., 3 seconds)
     if (errorMessage) {
       const timer = setTimeout(() => {
         setErrorMessage("");
-      }, 3000); // 3 seconds delay
+      }, 3000); //show error message for 3 seconds
 
       return () => clearTimeout(timer);
     }
