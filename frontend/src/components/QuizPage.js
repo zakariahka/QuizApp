@@ -123,25 +123,29 @@ const QuizPage = () => {
       console.log("no");
       try {
         console.log("bruh");
-        await addQuizScore(user._id, gameCode, score); // Call addQuizScore function
+        await addQuizScore(user._id, gameCode, score); 
         console.log("Score added successfully");
       } catch (error) {
         console.error("Error adding score", error);
       }
     }
-    navigate("/HomePage"); // Navigate to home after adding score
+    navigate("/HomePage"); 
   };
 
   return (
     <div className="quiz-page-container">
-
       {!quizStarted ? (
-         <div>
-         <h2>Quiz Game Code: {gameCode}</h2>
-         <button onClick={handleStartQuiz}>Begin</button>
-       </div>
-
-      ) : showLeaderboard || quizEnded ? (
+        <div>
+          <h2>Quiz Game Code: {gameCode}</h2>
+          <button onClick={handleStartQuiz}>Begin</button>
+        </div>
+      ) : quizEnded ? (
+        <div>
+          <h3>Quiz Completed</h3>
+          <p>Your Final Score: {score}</p>
+          <button onClick={handleQuizCompletion}>Go to Home</button>
+        </div>
+      ) : showLeaderboard ? (
         <div>
           <h3>Leaderboard</h3>
           <p>Your Score: {score}</p>
@@ -171,14 +175,9 @@ const QuizPage = () => {
           </ul>
           <p>Time left: {timer} seconds</p>
         </div>
-      ) : (
-        <div>
-          <h3>Quiz Completed</h3>
-          <p>Your Final Score: {score}</p>
-          <button onClick={handleQuizCompletion}>Go to Home</button>
-        </div>
-      )}
+      ) : null}
     </div>
   );
+  
 };
 export default QuizPage;
